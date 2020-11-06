@@ -47,7 +47,7 @@ run-test-short:
 	$(GOTEST) -parallel 2 -count 1 -cpu 2 -short -timeout 5m ./pkg/... ./internal/...
 run-test-go:
 	$(info Running all Go unit tests...)
-	$(GOTEST) -parallel 1 -count 1 -cpu 1 -tags slow -timeout 20m ./pkg/... ./internal/...
+	$(GOTEST) -cover -parallel 1 -count 1 -cpu 1 -tags slow -timeout 20m ./pkg/... ./internal/...
 test-parallel:
 	$(info Running all Go unit tests in parallel mode...)
 	$(GOTEST) -parallel 2 -count 1 -cpu 2 -tags slow -timeout 20m ./pkg/... ./internal/...
@@ -79,7 +79,9 @@ fmt-js:
 	(cd frontend &&	npm run fmt)
 fmt-imports:
 	goimports -w pkg internal
-fmt-go:
+fmt-go: fmt-imports
 	go fmt ./pkg/... ./internal/...
 tidy:
 	go mod tidy
+run:
+	go run ./internal/api/main.go
