@@ -1,5 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Oleo+Script&display=swap');
 @tailwind base;
 @tailwind components;
-
+.clip-path {  clip: polygon(0 0, 100% 0, 70% 100%, 0% 100%) }
+.animate-move{
+  background-size: 400% 400%;
+  animation: background-move 5s alternate infinite; 
+}
+@keyframes background-move{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 50% 100%;
+  }
+  100%{
+    background-position: 50% 0;
+  }
+}
 @tailwind utilities;
