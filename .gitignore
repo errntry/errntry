@@ -53,3 +53,4 @@ Thumbs.db
 
 # config file
 .env
+node_modules
