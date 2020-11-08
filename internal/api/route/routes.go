@@ -4,14 +4,12 @@ import (
 	"net/http"
 
 	"github.com/errntry/errntry/internal/api/controller/user"
-	"github.com/errntry/errntry/internal/config"
 	"github.com/gin-gonic/gin"
+	"github.com/profclems/go-dotenv"
 )
 
 func Run() error {
-	cfg := config.Load()
-
-	if appEnv := cfg.Get("APP_ENV"); appEnv != "" {
+	if appEnv := dotenv.GetString("APP_ENV"); appEnv != "" {
 		switch appEnv {
 		case "debug", "test":
 			gin.SetMode(gin.DebugMode)
@@ -33,5 +31,5 @@ func Run() error {
 	router.NoRoute(func(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 	})
-	return router.Run(":" + cfg.Get("SERVER_PORT"))
+	return router.Run(":" + dotenv.GetString("SERVER_PORT"))
 }

@@ -4,11 +4,13 @@ import (
 	"log"
 
 	"github.com/errntry/errntry/internal/api/route"
-	"github.com/errntry/errntry/internal/config"
+	"github.com/profclems/go-dotenv"
 )
 
 func main() {
-	_, err := config.Init()
+	dotenv.SetConfigFile(".env")
+	err := dotenv.LoadConfig()
+
 	if err != nil {
 		log.Fatalf("Failed to load config: %q", err)
 	}

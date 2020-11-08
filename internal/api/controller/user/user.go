@@ -2,15 +2,14 @@ package user
 
 import (
 	"errors"
-	"gopkg.in/mgo.v2"
 	"net/http"
 	"time"
 
-	"github.com/errntry/errntry/internal/api/controller/shared"
-
 	"github.com/errntry/errntry/internal/api/conn"
+	"github.com/errntry/errntry/internal/api/controller/shared"
 	"github.com/errntry/errntry/internal/api/model/user"
 	"github.com/gin-gonic/gin"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -21,7 +20,7 @@ func Index(ctx *gin.Context) {
 	db := conn.GetMongoDB()
 	users := user.Users{}
 	err := db.C(UserCollection).Find(bson.M{}).All(&users)
-	if err != nil{
+	if err != nil {
 		shared.Abort(ctx, http.StatusBadRequest, err.Error())
 		return
 	}
@@ -31,7 +30,7 @@ func Index(ctx *gin.Context) {
 func Get(ctx *gin.Context) {
 	var id = bson.ObjectIdHex(ctx.Param("id")) // Get Param
 	userInfo, err := user.Info(id, UserCollection)
-	if err != nil{
+	if err != nil {
 		if errors.Is(err, mgo.ErrNotFound) {
 			shared.AbortEntityNotFound(ctx, "User")
 			return
