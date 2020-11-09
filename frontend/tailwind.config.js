@@ -5,7 +5,7 @@ module.exports = {
   },
   purge: {
     mode: "all",
-    enabled: false,
+    enabled: true,
     content: ["./src/**/*.vue", "./public/index.html"],
     preserveHtmlElements: true
   },
