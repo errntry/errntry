@@ -1,13 +1,15 @@
 <template>
   <div class="w-screen h-screen antialiased font-mulish">
     <router-view :title="title" :motto="motto" :key="$route.fullPath" />
-    <router-link :title="title" :motto="motto" to="/"></router-link>
+    <router-link to="/"></router-link>
   </div>
 </template>
 <script lang="ts">
-import { ref } from "vue";
+import { defineComponent, ref } from "vue";
 
-export default {
+export default defineComponent({
+  name: "App",
+  components: {},
   setup() {
     const title = ref(`errntry`);
     const motto = ref(
@@ -18,5 +20,5 @@ export default {
       motto
     };
   }
-};
+});
 </script>

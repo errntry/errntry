@@ -57,8 +57,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      mulish: ["Mulish", "sans-serif"],
-      oleo: ["Oleo Script", "sans-serif"]
+      mulish: ["'Mulish'", "sans-serif"],
+      oleo: ["'Oleo Script'", "sans-serif"]
     }
   },
   variants: {
@@ -117,6 +117,7 @@ module.exports = {
       "focus-visible",
       "active"
     ],
+    justifyContent: ["responsive", "hover", "focus"],
     padding: [
       "responsive",
       "first",

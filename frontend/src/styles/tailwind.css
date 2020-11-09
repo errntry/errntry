@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&family=Oleo+Script&display=swap');
 @tailwind base;
 @tailwind components;
-.clip-path {  clip: polygon(0 0, 100% 0, 70% 100%, 0% 100%) }
+.clip-object {  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%) }
 .animate-move{
   background-size: 400% 400%;
   animation: background-move 5s alternate infinite; 
