@@ -1,8 +1,5 @@
 <template>
   <div class="bg-white h-full w-full text-blue-800 pt-8">
-    <!--    <div class="font-oleo text-center text-5xl font-bold text-blue-700">-->
-    <!--      {{ title }}-->
-    <!--    </div>-->
     <div class="font-bold text-3xl uppercase text-blue-700 text-center">
       {{ auth }}
     </div>
@@ -19,7 +16,7 @@
           <label for="name" class="block text-blue-700">Name</label>
           <input
             id="name"
-            class="block w-full px-6 py-2 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
+            class="block w-full px-6 py-1 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
             type="text"
             placeholder="Name"
             name="name"
@@ -32,7 +29,7 @@
           <label for="username" class="block text-blue-700">Username</label>
           <input
             id="username"
-            class="block w-full px-6 py-2 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
+            class="block w-full px-6 py-1 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
             type="text"
             placeholder="Username"
             name="username"
@@ -45,7 +42,7 @@
           <label for="email" class="block text-blue-700">Email</label>
           <input
             id="email"
-            class="block w-full px-6 py-2 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
+            class="block w-full px-6 py-1 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
             type="text"
             placeholder="Email"
             name="email"
@@ -58,7 +55,7 @@
           <label for="password" class="block text-blue-700">Password</label>
           <input
             id="password"
-            class="block w-full px-6 py-2 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
+            class="block w-full px-6 py-1 transition-all duration-400 ease-in border rounded border-blue-700 outline-none focus:bg-blue-100"
             type="password"
             placeholder="Password"
             name="password"
@@ -68,14 +65,14 @@
         </div>
         <button
           type="submit"
-          class="border mt-5 py-2 px-6 rounded bg-blue-700 text-white hover:bg-white hover:border-blue-700 hover:text-blue-700 hover:shadow"
+          class="border mt-5 py-1 px-6 rounded bg-blue-700 text-white hover:bg-white hover:border-blue-700 hover:text-blue-700 hover:shadow"
         >
           {{ auth }}
         </button>
         <div class="text-center">
-          Login with Github or GitLab below or
-          <router-link to="/signup" class="underline">Signup here</router-link>
-          if you dont have an {{ title }} account.
+          {{ auth }} with Github or GitLab below or
+          <router-link to="/login" class="underline">Login here</router-link>
+          if you already have an {{ title }} account.
         </div>
         <button
           type="submit"
