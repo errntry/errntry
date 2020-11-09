@@ -2,10 +2,6 @@
 @tailwind base;
 @tailwind components;
 .clip-object {  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%) }
-.animate-move{
-  background-size: 400% 400%;
-  animation: background-move 5s alternate infinite; 
-}
 @keyframes background-move{
   0%{
     background-position: 0 50%;

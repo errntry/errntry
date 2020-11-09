@@ -1,18 +1,16 @@
 package conn
 
 import (
-	"github.com/errntry/errntry/internal/config"
 	"github.com/errntry/errntry/internal/errors"
+	"github.com/profclems/go-dotenv"
 	"gopkg.in/mgo.v2"
 )
 
 var db *mgo.Database
 
 func init() {
-	cfg := config.Load()
-
-	host := cfg.Get("MONGO_HOST")
-	dbName := cfg.Get("MONGO_DB_NAME")
+	host := dotenv.GetString("MONGO_HOST")
+	dbName := dotenv.GetString("MONGO_DB_NAME")
 
 	session, err := mgo.Dial(host)
 	if err != nil {
@@ -20,9 +18,9 @@ func init() {
 	}
 
 	cred := &mgo.Credential{
-		Username: cfg.Get("MONGO_DB_USER"),
-		Password: cfg.Get("MONGO_DB_PASS"),
-		Source:   cfg.Get("MONGO_AUTH_DB"),
+		Username: dotenv.GetString("MONGO_DB_USER"),
+		Password: dotenv.GetString("MONGO_DB_PASS"),
+		Source:   dotenv.GetString("MONGO_AUTH_DB"),
 	}
 	err = session.Login(cred)
 	db = session.DB(dbName)
